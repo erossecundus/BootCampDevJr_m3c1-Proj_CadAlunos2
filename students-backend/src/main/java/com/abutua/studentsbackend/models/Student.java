@@ -10,8 +10,7 @@ public class Student {
   int period;
 
   //metodos construtores
-  public Student() {
-  }
+  public Student() {}
 
   public Student(int id, String name, String email, String phone, int idCurso, int period) {
     this.id = id;
