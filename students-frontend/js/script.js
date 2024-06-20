@@ -1,50 +1,61 @@
 $("#inputPhone").mask("(00) 00000-0000");
 
-var students = [
-  {
-    id: 1,
-    name: "Fulano de Tal",
-    email: "exemplo@mail.com",
-    phone: "(15) 99999-9999",
-    class: "4",
-    shift: "1"
-  }
-];
-
-var classes = [
-  { id: 1, name: "HTML/CSS", },
-  { id: 2, name: "JavaScript", },
-  { id: 3, name: "Angular", },
-  { id: 4, name: "Java", }
-];
-
-var shifts = [
+// Data
+var students = [];
+var courses = [];
+var periods = [
   { id: 1, name: "Manhã", },
   { id: 2, name: "Tarde", },
   { id: 3, name: "Noite", }
 ];
 
-LoadStudent()
+// OnLoad
+LoadCouses();
+LoadStudent();
 
-function LoadStudent() {
-  for (let student of students) {
-    addNewRow(student);
-  }
+// Load all Courses
+function LoadCouses() {
+  $.ajax({
+        url: "http://localhost:8080/courses",
+        type: "GET",
+        async: false,
+        success: (response) => {
+          courses = response;
+          // carrega os cursos no dropdown menu
+          for (let curs of courses)
+            document.getElementById("selectCourse").innerHTML +=
+              `<option value=${curs.id}>${curs.name}</option>`
+        }
+  });
 }
 
+// Load all Students
+function LoadStudent() {
+  $.getJSON("http://localhost:8080/students", (response) => {
+          students = response;
+          for (let student of students) {
+            addNewRow(student);
+          }
+        }
+  );
+}
+
+
+// Save a Student
 function save() {
   var newStudent = {
     id: students.length+1,
     name: document.getElementById("inputName").value,
     email: document.getElementById("inputEmail").value,
     phone: document.getElementById("inputPhone").value,
-    class: document.getElementById("inputClass").value,
-    shift: document.querySelector("input[name='flexRadioShift']:checked").value
+    idCourse: document.getElementById("selectCourse").value,
+    period: document.querySelector("input[name='flexRadioPeriod']:checked").value
   }
 
   addNewRow(newStudent);
 }
 
+// 
 function addNewRow(student) {
   var table = document.getElementById("studentsTable");
 
@@ -58,22 +69,22 @@ function addNewRow(student) {
 
   var emailNode = document.createTextNode(student.email);
   var cell = newRow.insertCell();
-  cell.className="d-none d-md-table-cell";
+  cell.courseName="d-none d-md-table-cell";
   cell.appendChild(emailNode);
 
   var phoneNode = document.createTextNode(student.phone);
   var cell = newRow.insertCell();
-  cell.className="d-none d-md-table-cell";
+  cell.courseName="d-none d-md-table-cell";
   cell.appendChild(phoneNode);
 
-  var classNode = document.createTextNode(classes[student.class - 1].name);
+  var courseNode = document.createTextNode(courses[student.idCourse - 1].name);
   var cell = newRow.insertCell();
-  cell.className="d-none d-md-table-cell";
-  cell.appendChild(classNode);
+  cell.courseName="d-none d-md-table-cell";
+  cell.appendChild(courseNode);
 
-  var shiftNode = document.createTextNode(shifts[student.shift - 1].name);
+  var periodNode = document.createTextNode(periods[student.period - 1].name);
   var cell = newRow.insertCell();
-  cell.className="d-none d-md-table-cell";
-  cell.appendChild(shiftNode);
+  cell.courseName="d-none d-md-table-cell";
+  cell.appendChild(periodNode);
 
 }

@@ -6,18 +6,18 @@ public class Student {
   String name;
   String email;
   String phone;
-  int idCurso;
+  int idCourse;
   int period;
 
   //metodos construtores
   public Student() {}
 
-  public Student(int id, String name, String email, String phone, int idCurso, int period) {
+  public Student(int id, String name, String email, String phone, int idCourse, int period) {
     this.id = id;
     this.name = name;
     this.email = email;
     this.phone = phone;
-    this.idCurso = idCurso;
+    this.idCourse = idCourse;
     this.period = period;
   }
 
@@ -46,11 +46,11 @@ public class Student {
   public void setPhone(String phone) {
     this.phone = phone;
   }
-  public int getIdCurso() {
-    return idCurso;
+  public int getidCourse() {
+    return idCourse;
   }
-  public void setIdCurso(int idCurso) {
-    this.idCurso = idCurso;
+  public void setidCourse(int idCourse) {
+    this.idCourse = idCourse;
   }
   public int getPeriod() {
     return period;

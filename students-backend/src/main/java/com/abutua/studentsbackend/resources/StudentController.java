@@ -17,14 +17,15 @@ import com.abutua.studentsbackend.models.Student;
 
 
 @RestController
-//@CrossOrigin
+@CrossOrigin
 public class StudentController {
   
   //lista de alunos
   private List<Student> students = Arrays.asList(
-    new Student(1, "Nome Primeiro", "nome1@email.com", "(15) 99999-9999", 1, 2),
-    new Student(2, "Nome Segundo", "nome2@email.com", "(15) 99999-9999", 2, 4),
-    new Student(3, "Nome Terceiro", "nome3@email.com", "(15) 99999-9999", 3, 6)
+    new Student(1, "Ana Antônia", "nome1@email.com", "(15) 99999-9999", 1, 2),
+    new Student(2, "Beto Balanço", "nome2@email.com", "(15) 99999-9999", 2, 1),
+    new Student(3, "Calros Cunha", "nome3@email.com", "(15) 99999-9999", 3, 3),
+    new Student(3, "Diana Dione", "nome4@email.com", "(15) 99999-9999", 4, 2)
   );
 
   //endpoints

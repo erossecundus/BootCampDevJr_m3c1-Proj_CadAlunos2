@@ -52,15 +52,12 @@
 
             <div class="row mb-3">
               <div class="col-12 col-md-2">
-                <label for="inputClass" class="form-label">Curso:</label>
+                <label for="selectCourse" class="form-label">Curso:</label>
               </div>
               <div class="col-12 col-lg-5 col-md-10">
-                <select id="inputClass" class="form-select" required>
+                <select id="selectCourse" class="form-select" required>
                   <option value="" selected>Escolha</option>
-                  <option value="1">HTML/CSS</option>
-                  <option value="2">JavaScript</option>
-                  <option value="3">Angular</option>
-                  <option value="4">Java</option>
+                  <!-- Carrega do backend por meio do javascript -->
                 </select>
               </div>
             </div>
@@ -71,20 +68,20 @@
               </div>
               <div class="col-12 col-md-5">
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioShift" id="radioShiftMorning" value="1" checked>
-                  <label class="form-check-label" for="radioShiftMorning">
+                  <input class="form-check-input" type="radio" name="flexRadioPeriod" id="radioPeriodMorning" value="1" checked>
+                  <label class="form-check-label" for="radioPeriodMorning">
                     Manhã
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioShift" id="radioShiftAfternoon" value="2">
-                  <label class="form-check-label" for="radioShiftAfternoon">
+                  <input class="form-check-input" type="radio" name="flexRadioPeriod" id="radioPeriodAfternoon" value="2">
+                  <label class="form-check-label" for="radioPeriodAfternoon">
                     Tarde
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioShift" id="radioShiftNight" value="3">
-                  <label class="form-check-label" for="radioShiftNight">
+                  <input class="form-check-input" type="radio" name="flexRadioPeriod" id="radioPeriodNight" value="3">
+                  <label class="form-check-label" for="radioPeriodNight">
                     Noite
                   </label>
                 </div>

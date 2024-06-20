@@ -14,13 +14,15 @@ import org.springframework.web.server.ResponseStatusException;
 import com.abutua.studentsbackend.models.Course;
 
 @RestController
-//@CrossOrigin
+@CrossOrigin
 public class CourseController {
   
   //lista de cursos
-  private List<Course> courses = Arrays.asList( new Course(1, "Análise e Desenvolvimento de Sistemas"),
-                                                new Course(2, "Fabricação Mecânica"),
-                                                new Course(3, "Logística")
+  private List<Course> courses = Arrays.asList( new Course(1, "Html/CSS"),
+                                                new Course(2, "JavaScript"),
+                                                new Course(3, "Java"),
+                                                new Course(4, "Angular"),
+                                                new Course(5, "Node.js")
   );
 
   //endpoints
@@ -34,7 +36,6 @@ public class CourseController {
   
     return ResponseEntity.ok(course);
   }
-
 
   @GetMapping("courses")
   public List<Course> getCourses() {
