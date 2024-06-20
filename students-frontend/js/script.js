@@ -40,7 +40,6 @@ function LoadStudent() {
   );
 }
 
-
 // Save a Student
 function save() {
   var newStudent = {
@@ -52,10 +51,20 @@ function save() {
     period: document.querySelector("input[name='flexRadioPeriod']:checked").value
   }
 
-  addNewRow(newStudent);
+  $.ajax({
+    url: "http://localhost:8080/students",
+    contentType: "application/json",
+    data: JSON.stringify(newStudent),
+    type: "POST",
+    success: (student) => {
+      addNewRow(student);
+      students.push(student);
+      document.getElementById("formStudents").reset();
+    }
+  });
 }
 
-// 
+// Add a new Row
 function addNewRow(student) {
   var table = document.getElementById("studentsTable");
 

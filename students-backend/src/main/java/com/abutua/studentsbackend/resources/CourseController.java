@@ -16,8 +16,7 @@ import com.abutua.studentsbackend.models.Course;
 @RestController
 @CrossOrigin
 public class CourseController {
-  
-  //lista de cursos
+  // lista de cursos
   private List<Course> courses = Arrays.asList( new Course(1, "Html/CSS"),
                                                 new Course(2, "JavaScript"),
                                                 new Course(3, "Java"),
@@ -25,10 +24,10 @@ public class CourseController {
                                                 new Course(5, "Node.js")
   );
 
-  //endpoints
+  // endpoints
   @GetMapping("courses/{id}")
   public ResponseEntity<Course> getCourse(@PathVariable int id) {
-    //cria o stream (lista), acha o primeiro e filtra - ou trata o erro
+    // cria o stream (lista), acha o primeiro e filtra - ou trata o erro
     Course course = courses.stream()
                             .filter( c -> c.getId() == id)
                             .findFirst()
